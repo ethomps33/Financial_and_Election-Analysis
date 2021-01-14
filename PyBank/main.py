@@ -28,9 +28,10 @@ with open(budget_data) as csvfile:
         last_month_val = int(row[1])
         
         largest_increase = max(largest_increase, monthly_change)
-        increase_date+= row
+        increase_date= row[0]
         largest_decrease = min(largest_decrease, monthly_change)
-        decrease_date+= row[0]
+
+        
             
         
     
@@ -39,7 +40,7 @@ with open(budget_data) as csvfile:
     print(f'Total Months: {row_count}')
     print(f'Total: ${total_sum}')
     print(f'Average Change: ${round((total_change/row_count), 2)}')
-    print(f'Greatest Increase in Profits: \n {increase_date} ${largest_increase}')
-    print(f'Greatest Decrease in Profits: \n {decrease_date} ${largest_decrease}') 
+    print(f'Greatest Increase in Profits: \n {increase_date}  ${largest_increase} ')
+    print(f'Greatest Decrease in Profits: \n  ${largest_decrease}') 
 
         

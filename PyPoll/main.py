@@ -2,7 +2,7 @@ import csv
 import os
 
 total_votes = 0
-candidate = ['', 0]
+
 election_data = os.path.join("Resources/election_data.csv")
 
 with open(election_data) as csvfile:
@@ -12,10 +12,11 @@ with open(election_data) as csvfile:
 
     total_votes+=1
 
-    for candidate in election_csv:
+    for row in election_csv:
         total_votes+=1
-        candidate+= row[2]
-    print(candidate)
+        candidate = (''.join(row[2]))
+        
+ 
         
     #print(total_votes)
 
@@ -26,3 +27,5 @@ with open(election_data) as csvfile:
     print("------------------------")
     print(f'Total Votes: {total_votes}')
     print("------------------------")
+    print(row[0], candidate)
+    
