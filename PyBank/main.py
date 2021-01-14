@@ -18,27 +18,28 @@ with open(budget_data) as csvfile:
 
     for row in budget_csv:
         row_count+=1
+        increase_date = row
+        decrease_date = row
 
-        monthly_change= (int(row[1])) - last_month_val
+        monthly_change= int(row[1]) - last_month_val
+        
         total_change += monthly_change
-        
         total_sum+=int(row[1])
-        total_change += int(row[1]) - last_month_val
         last_month_val = int(row[1])
-
+        
         largest_increase = max(largest_increase, monthly_change)
-        
+        increase_date+= row
         largest_decrease = min(largest_decrease, monthly_change)
-        
+        decrease_date+= row[0]
             
         
-         
+    
     print("Finacial Analysis")
     print("--------------------------------")
     print(f'Total Months: {row_count}')
     print(f'Total: ${total_sum}')
     print(f'Average Change: ${round((total_change/row_count), 2)}')
-    print(f'Greatest Increase in Profits: \n ${largest_increase}')
-    print(f'Greatest Decrease in Profits: \n ${largest_decrease}')
+    print(f'Greatest Increase in Profits: \n {increase_date} ${largest_increase}')
+    print(f'Greatest Decrease in Profits: \n {decrease_date} ${largest_decrease}') 
 
         
