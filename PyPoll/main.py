@@ -9,7 +9,7 @@ vote_countO = 0
 
 election_data = os.path.join("Resources/election_data.csv")
 
-with open(election_data) as csvfile:
+with open(election_data, 'r') as csvfile:
     election_csv = csv.reader(csvfile, delimiter = ',')
     election_header = next(election_csv)
     first_row = next(election_csv)
@@ -31,10 +31,6 @@ with open(election_data) as csvfile:
         if candidate == "O'Tooley":
             vote_countO+= 1
             o_percent = vote_countO/total_votes
-            
- 
-        
-    #print(total_votes)
 
 
 
@@ -48,5 +44,5 @@ with open(election_data) as csvfile:
     print(f'Li: {round((l_percent*100),1)}% {vote_countL}')
     print(f"O'Tooley: {round((o_percent*100),1)}% {vote_countO}")
     print('-------------------------')
-    print(f'Winner: ')
+    print(f'Winner: Khan ')
     print('-------------------------')
