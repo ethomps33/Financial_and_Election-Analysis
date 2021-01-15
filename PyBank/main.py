@@ -33,9 +33,9 @@ with open(budget_data, 'r') as csvfile:
         last_month_val= int(row[1])
        
         total_sum+=int(row[1])        
-output_path = os.path.join("Analysis", "output_PyBank.csv")
-with open(output_path, 'w', newline='') as csvfile:
-    csvwriter = csv.writer(csvfile, delimiter=":")
+output_path = os.path.join("Analysis", "output_PyBank.txt")
+with open(output_path, 'w', newline='') as txtfile:
+    csvwriter = csv.writer(txtfile, delimiter=",")
     csvwriter.writerow(["Finacial Analysis"])
     csvwriter.writerow(["--------------------------------"])
     csvwriter.writerow([f'Total Months: {row_count}'])

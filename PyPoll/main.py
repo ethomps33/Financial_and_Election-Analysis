@@ -48,9 +48,9 @@ with open(election_data, 'r') as csvfile:
     print('-------------------------')
     print(f'Winner: Khan ')
     print('-------------------------')
-output_path = os.path.join("Analysis", "output_PyPoll.csv")
-with open(output_path, 'w', newline='') as csvfile:
-    csvwriter = csv.writer(csvfile, delimiter=",")
+output_path = os.path.join("Analysis", "output_PyPoll.txt")
+with open(output_path, 'w', newline='') as txtfile:
+    csvwriter = csv.writer(txtfile, delimiter=",")
     csvwriter.writerow(["Election Results"])
     csvwriter.writerow(["------------------------"])
     csvwriter.writerow([f'Total Votes: {total_votes}'])
