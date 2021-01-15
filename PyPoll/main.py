@@ -21,12 +21,16 @@ with open(election_data) as csvfile:
         candidate = (''.join(row[2]))
         if candidate == 'Khan':
             vote_countK+= 1
+            k_percent = vote_countK/total_votes
         if candidate == 'Correy':
             vote_countC+= 1
+            c_percent = vote_countC/total_votes
         if candidate == 'Li':
             vote_countL+= 1
-        else:
+            l_percent = vote_countL/total_votes
+        if candidate == "O'Tooley":
             vote_countO+= 1
+            o_percent = vote_countO/total_votes
             
  
         
@@ -39,10 +43,10 @@ with open(election_data) as csvfile:
     print("------------------------")
     print(f'Total Votes: {total_votes}')
     print("------------------------")
-    print(f'Khan: {vote_countK}')
-    print(f'Correy: {vote_countC}')
-    print(f'Li: {vote_countL}')
-    print(f"O'Tooley: {vote_countO}")
+    print(f'Khan: {round((k_percent*100),1)}% {vote_countK}')
+    print(f'Correy: {round((c_percent*100),1)}% {vote_countC}')
+    print(f'Li: {round((l_percent*100),1)}% {vote_countL}')
+    print(f"O'Tooley: {round((o_percent*100),1)}% {vote_countO}")
     print('-------------------------')
     print(f'Winner: ')
     print('-------------------------')
