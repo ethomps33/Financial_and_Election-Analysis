@@ -1,12 +1,15 @@
+#import dependancies
 import csv
 import os
 
+#setting looping variable
 total_votes = 0
 vote_countK = 0
 vote_countC = 0
 vote_countL = 0
 vote_countO = 0
 
+#Opening the file through the file path
 election_data = os.path.join("Resources/election_data.csv")
 
 with open(election_data, 'r') as csvfile:
@@ -14,8 +17,7 @@ with open(election_data, 'r') as csvfile:
     election_header = next(election_csv)
     first_row = next(election_csv)
 
-    total_votes+=1
-
+    #Creating a loop to loop through the candidates to total the votes and set a percent
     for row in election_csv:
         total_votes+=1
         candidate = (''.join(row[2]))
@@ -31,10 +33,10 @@ with open(election_data, 'r') as csvfile:
         if candidate == "O'Tooley":
             vote_countO+= 1
             o_percent = vote_countO/total_votes
+        winner = row[2].most_common(1)[0]
 
 
-
-    
+    #Output
     print("Election Results")
     print("------------------------")
     print(f'Total Votes: {total_votes}')
