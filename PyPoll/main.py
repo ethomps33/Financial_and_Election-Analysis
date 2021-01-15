@@ -2,6 +2,10 @@ import csv
 import os
 
 total_votes = 0
+vote_countK = 0
+vote_countC = 0
+vote_countL = 0
+vote_countO = 0
 
 election_data = os.path.join("Resources/election_data.csv")
 
@@ -15,7 +19,15 @@ with open(election_data) as csvfile:
     for row in election_csv:
         total_votes+=1
         candidate = (''.join(row[2]))
-        
+        if candidate == 'Khan':
+            vote_countK+= 1
+        if candidate == 'Correy':
+            vote_countC+= 1
+        if candidate == 'Li':
+            vote_countL+= 1
+        else:
+            vote_countO+= 1
+            
  
         
     #print(total_votes)
@@ -27,5 +39,10 @@ with open(election_data) as csvfile:
     print("------------------------")
     print(f'Total Votes: {total_votes}')
     print("------------------------")
-    print(row[0], candidate)
-    
+    print(f'Khan: {vote_countK}')
+    print(f'Correy: {vote_countC}')
+    print(f'Li: {vote_countL}')
+    print(f"O'Tooley: {vote_countO}")
+    print('-------------------------')
+    print(f'Winner: ')
+    print('-------------------------')

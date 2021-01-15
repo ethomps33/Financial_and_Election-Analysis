@@ -18,10 +18,16 @@ with open(budget_data) as csvfile:
 
     for row in budget_csv:
         row_count+=1
-        increase_date = row
-        decrease_date = row
+
+        if row_count != 0:
+            total_change += int(row[1]) - last_month_val
+        row_count+=1
+        last_month_val= int(row[1])
+    
+
 
         monthly_change= int(row[1]) - last_month_val
+        
         
         total_change += monthly_change
         total_sum+=int(row[1])
