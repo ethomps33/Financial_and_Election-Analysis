@@ -33,10 +33,16 @@ with open(budget_data, 'r') as csvfile:
         last_month_val= int(row[1])
        
         total_sum+=int(row[1])        
-output_path = os.path.join("Analysis", "output.csv")
+output_path = os.path.join("Analysis", "output_PyBank.csv")
 with open(output_path, 'w', newline='') as csvfile:
-    csvwriter = csv.writer(csvfile, delimiter=',')
-    
+    csvwriter = csv.writer(csvfile, delimiter=":")
+    csvwriter.writerow(["Finacial Analysis"])
+    csvwriter.writerow(["--------------------------------"])
+    csvwriter.writerow([f'Total Months: {row_count}'])
+    csvwriter.writerow([f'Total: ${total_sum}'])
+    csvwriter.writerow([f'Average Change: ${round((total_change/(row_count-1)), 2)}'])
+    csvwriter.writerow([f'Greatest Increase in Profits: \n {greatest_increase_month} (${greatest_increase_difference})'])
+    csvwriter.writerow([f'Greatest Decrease in Profits: \n {greatest_decrease_month} (${greatest_decrease_difference})'])
     print("Finacial Analysis")
     print("--------------------------------")
     print(f'Total Months: {row_count}')

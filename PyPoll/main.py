@@ -33,7 +33,7 @@ with open(election_data, 'r') as csvfile:
         if candidate == "O'Tooley":
             vote_countO+= 1
             o_percent = vote_countO/total_votes
-        winner = row[2].most_common(1)[0]
+        
 
 
     #Output
@@ -48,3 +48,17 @@ with open(election_data, 'r') as csvfile:
     print('-------------------------')
     print(f'Winner: Khan ')
     print('-------------------------')
+output_path = os.path.join("Analysis", "output_PyPoll.csv")
+with open(output_path, 'w', newline='') as csvfile:
+    csvwriter = csv.writer(csvfile, delimiter=",")
+    csvwriter.writerow(["Election Results"])
+    csvwriter.writerow(["------------------------"])
+    csvwriter.writerow([f'Total Votes: {total_votes}'])
+    csvwriter.writerow(["------------------------"])
+    csvwriter.writerow([f'Khan: {round((k_percent*100),1)}% {vote_countK}'])
+    csvwriter.writerow([f'Correy: {round((c_percent*100),1)}% {vote_countC}'])
+    csvwriter.writerow([f'Li: {round((l_percent*100),1)}% {vote_countL}'])
+    csvwriter.writerow([f"O'Tooley: {round((o_percent*100),1)}% {vote_countO}"])
+    csvwriter.writerow(['-------------------------'])
+    csvwriter.writerow([f'Winner: Khan '])
+    csvwriter.writerow(['-------------------------'])
